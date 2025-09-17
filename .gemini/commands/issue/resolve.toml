@@ -34,9 +34,10 @@ Resolve the GitHub issue: `{{args}}` (This argument is expected to be a GitHub i
 -   **Extract Information**: From the `gh` command output, extract the `title`, `body`, `url`, and `issue_number` (if not already directly available from `issue_identifier`).
 -   **Summarize Issue**: Based on the fetched details, provide a concise summary of the problem and its scope.
 -   **Determine Affected Area(s)**: Analyze the issue's `title`, `body`, and `comments` to deterministically identify the primary area(s) of the codebase affected. Categorize the issue as one or more of the following: "Frontend", "Backend", "Data", or "Full Stack".
-    -   **Frontend**: Look for keywords like "UI", "UX", "component", "page", "styling", "React", "Next.js", "Tailwind CSS", "user interface", "browser", "client-side", "CSS", "JavaScript", "TypeScript".
-    -   **Backend**: Look for keywords like "API", "server", "endpoint", "authentication", "middleware", "Node.js", "Express.js", "server-side logic", "route", "controller", "service".
-    -   **Data**: Look for keywords like "database", "Prisma", "SQLite", "schema", "migration", "query", "data model", "data integrity", "ORM", "DB".
+    -   To improve accuracy, you should first inspect the project's dependency files (e.g., `package.json`, `requirements.txt`, `pom.xml`, `build.gradle`) to identify the specific technologies used.
+    -   **Frontend**: Look for general keywords like "UI", "UX", "component", "page", "styling", "user interface", "browser", "client-side", "CSS", "JavaScript", "TypeScript", as well as project-specific frontend libraries you identified.
+    -   **Backend**: Look for general keywords like "API", "server", "endpoint", "authentication", "middleware", "server-side logic", "route", "controller", "service", as well as project-specific backend frameworks you identified.
+    -   **Data**: Look for general keywords like "database", "schema", "migration", "query", "data model", "data integrity", "ORM", "DB", as well as project-specific database technologies you identified.
     -   **Full Stack**: If keywords from multiple categories are present, or if the issue description explicitly mentions "full stack" or implies changes across layers. If no specific keywords are found, default to "Full Stack" as a comprehensive approach.
 
 ### 2. Plan Formulation Phase
@@ -77,9 +78,9 @@ Resolve the GitHub issue: `{{args}}` (This argument is expected to be a GitHub i
     - [ ] ... (add all implementation steps as checklist items)
     - [ ] Write/Update unit tests.
     - [ ] Write/Update integration/E2E tests (if applicable).
-    - [ ] Run all tests (`npm run test`).
-    - [ ] Run linting and formatting checks (`npm run lint`, `npm run format`).
-    - [ ] Build the application (`npm run build`).
+    - [ ] Run all tests (you MUST identify and use the project's specific test command).
+    - [ ] Run linting and formatting checks (you MUST identify and use the project's specific linting/formatting commands).
+    - [ ] Build the application (you MUST identify and use the project's specific build command).
     - [ ] Verify the fix manually.
     - [ ] Commit changes with a descriptive message.
     - [ ] Push the branch and create a Pull Request.
